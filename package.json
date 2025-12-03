@@ -18,5 +18,8 @@
   "homepage": "https://github.com/FeRojasr91/UdemyCypress#readme",
   "dependencies": {
     "cypress": "^14.0.0"
+  },
+  "devDependencies": {
+    "cypress-plugin-tab": "^1.0.5"
   }
 }
