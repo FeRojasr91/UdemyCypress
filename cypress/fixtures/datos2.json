@@ -1,0 +1,19 @@
+[
+    {
+        "nombre": "Alexis", "email":"al@email.com", "fono":"9876765673", "direccion":"Los pinos 123"
+    },
+    {
+        "nombre": "pedro", "email":"a2l@email.com", "fono":"9876765673", "direccion":"Los pinos 123"
+    },
+    {
+        "nombre": "juan", "email":"a3l@email.com", "fono":"9876765673", "direccion":"Los pinos 123"
+    },
+    {
+        "nombre": "mateo", "email":"a4l@email.com", "fono":"9876765673", "direccion":"Los pinos 123"
+    },
+    {
+        "nombre": "lucas", "email":"a5l@email.com", "fono":"9876765673", "direccion":"Los pinos 123"
+    }
+
+
+]

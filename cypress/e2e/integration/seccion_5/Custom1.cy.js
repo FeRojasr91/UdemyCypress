@@ -14,18 +14,19 @@ describe ('Comandos Personalizados', () =>{
         cy.wait(tiempo)
     })
     
-    it('Demo uno', () => {
+    it.only('Demo uno', () => {
         cy.Texto_visible('#firstname','Juan')
         cy.Texto_visible('#surname','Perez Reyes')
         cy.Texto_visible_xpath('//*[@id="age"]','43')
-        cy.Texto_visible_select('#country','Andorra')
+        cy.Texto_visible_select('#country','Andorra')        
+        cy.screenshot("Campo ciudad")        
         cy.Texto_visible_xpath('//*[@id="notes"]', 'Hola Mundo')
         cy.Boton_click('input[type="submit"]')
           
 
     })
 
-    it.only('Demo dos', ()=>{
+    it('Demo dos', ()=>{
         cy.Bloque_TestPages('Juan','Perez Reyes','43','Andorra','Hola Mundo')   
     })
 })

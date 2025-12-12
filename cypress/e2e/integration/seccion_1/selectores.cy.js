@@ -8,7 +8,7 @@ describe("Tipos de selectores ", () => {
         cy.title().should('eq','DEMOQA')
         cy.wait(1000)
 
-        cy.get('#userName').should('be.visible').type('Carlos')
+        cy.get('#userName').should('be.visible', {timeout:5000}).type('Carlos')
         cy.get('#userEmail').should('be.visible').type('car@email.com')
 
     });
