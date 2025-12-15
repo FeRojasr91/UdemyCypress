@@ -1,21 +1,26 @@
-const { defineConfig } = require("cypress");
 
-module.exports = defineConfig(
-  {
-  video: true,
-  videosFolder: 'cypress/videos',
+const { defineConfig } = require('cypress');
+const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
+const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
+const { createEsbuildPlugin } = require('@badeball/cypress-cucumber-preprocessor/esbuild');
 
-
-
+module.exports = defineConfig({
   e2e: {
+    specPattern: '**/*.feature',
+    async setupNodeEvents(on, config) {
+      // Registra el plugin del preprocessor (para reportes, filtrado, etc.)
+      await addCucumberPreprocessorPlugin(on, config);
 
-    "viewportWidth":1500,
-    "viewportHeight":900,
-    "chromeWebSecurity":false,
-    "pageLoadTimeout":9000,
-    "defaultCommandTimeout":15000,
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+      // Ata el bundler (esbuild) para que Cypress sepa cómo transformar .feature
+      on(
+        'file:preprocessor',
+        createBundler({
+          plugins: [createEsbuildPlugin(config)],
+        })
+      );
+
+      // Devuelve el config (puede haber sido modificado por el plugin)
+      return config;
     },
   },
-});
+})
